@@ -36,9 +36,9 @@ class Schedule extends Component {
 		if (this.state.todayOfferings.length) {
 			scheduleTitle = <h2>Today in the Classroom</h2>;
 		} else if (isWeekend) {
-			scheduleTitle = <h4>No offerings scheduled for today - it's the weekend!</h4>;
+			scheduleTitle = <h4>No offerings are scheduled for today - it's the weekend!</h4>;
 		} else {
-			scheduleTitle = <h4>No offerings scheduled for today.</h4>;
+			scheduleTitle = <h4>No offerings are scheduled for today.</h4>;
 		}
 		let scheduleTable = (
 			<table id="schedule-table" className="table table-hover">
