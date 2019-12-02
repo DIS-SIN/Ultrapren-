@@ -1,0 +1,61 @@
+{
+	"name": "ultrapren",
+	"version": "1.0.0",
+	"description": "LPB to-do tracker in React",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --mode production",
+		"start": "webpack-dev-server --mode development --hot"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DIS-SIN/Ultrapren.git"
+	},
+	"keywords": [
+		"React"
+	],
+	"author": "deepklim",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/DIS-SIN/Ultrapren/issues"
+	},
+	"homepage": "https://github.com/DIS-SIN/Ultrapren#readme",
+	"dependencies": {
+		"@babel/polyfill": "^7.4.4",
+		"es6-promise": "^4.2.8",
+		"isomorphic-fetch": "^2.2.1",
+		"moment": "^2.24.0",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
+		"react-modal": "^3.9.1",
+		"react-redux": "^7.1.0",
+		"react-router-dom": "^5.0.1",
+		"react-sliding-pane": "^3.1.0",
+		"redux": "^4.0.4",
+		"redux-thunk": "^2.3.0",
+		"tabulator-tables": "^4.4.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/preset-react": "^7.0.0",
+		"babel-loader": "^8.0.6",
+		"css-loader": "^3.2.0",
+		"file-loader": "^4.2.0",
+		"html-webpack-plugin": "^3.2.0",
+		"style-loader": "^1.0.0",
+		"webpack": "^4.39.2",
+		"webpack-cli": "^3.3.6",
+		"webpack-dev-server": "^3.8.0"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		],
+		"plugins": [
+			"@babel/plugin-proposal-class-properties"
+		]
+	}
+}

@@ -1,0 +1,482 @@
+/***** Global *****/
+html {
+	position: relative;
+	min-height: 100%;
+	/* Explicitly declare so can be referenced by rem units */
+	font-size: 16px;
+}
+body {
+	font-family: Helvetica, sans-serif;
+	color: #333;
+	font-size: 1rem;
+}
+a,
+a:link,
+a:visited {
+	color: #333;
+}
+a:hover,
+a:active {
+	color: #000;
+}
+/* Hide outline when clicking on buttons */
+button,
+input {
+	outline: none !important;
+}
+/***** End global *****/
+
+
+
+/***** Background image of /home *****/
+/* Needs to be before all other elements for IE11 */
+.home-page {
+	/* Source: https://stocksnap.io/photo/KODL4VKCFR */
+	/* Source: https://stocksnap.io/photo/CIOPTKHSK1 */
+	background-image: url("./img/stars.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+/***** End background image *****/
+
+
+
+/***** Footer *****/
+/* Space for footer */
+.home-page,
+.schedule-page,
+.to-do-page {
+	/* Same as height of footer */
+	padding-bottom: 3.75rem;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Same as padding-bottom of pages with footers */
+	height: 3.75rem;
+}
+footer .container {
+	height: 100%;
+}
+#footer-contents {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+#footer-contents a {
+	color: #333;
+}
+/* Exception: white font colour on home page */
+.home-page #footer-contents a {
+	color: #fff;
+}
+#footer-contents img {
+	height: 2.3rem;
+}
+/***** End footer *****/
+
+
+
+/***** Navbars *****/
+/* Both */
+.navbar-default {
+	border: none;
+	border-radius: 0;
+	margin: 0;
+}
+/* First navbar */
+#first-nav {
+	background-color: transparent;
+}
+#first-nav a {
+	color: #333;
+}
+/* Exception: white font colour on home page */
+.home-page #first-nav a {
+	color: #fff;
+}
+#first-nav img {
+	height: 1.25rem;
+}
+/* Second navbar */
+#second-nav {
+	background-color: transparent;
+	padding: 2rem 0.6rem 0.6rem 0.6rem;
+}
+#second-nav a {
+	color: #333;
+	font-size: 1.5rem;
+}
+/* Exception: white font colour on home page */
+.home-page #second-nav a {
+	color: #fff;
+}
+/* Transition links on hover */
+/* Don't show transition on mobile as navbar will be collapsed */
+@media (min-width: 768px) {
+	#second-nav a::after {
+		content: '';
+		display: block;
+		background-color: #26a69a;
+		height: 4px;
+		width: 0%;
+		margin-top: 6px;
+		transition: width 450ms ease-in-out;
+	}
+	#second-nav a.active::after {
+		transition: none;
+	}
+	#second-nav a.active::after,
+	#second-nav a:hover::after {
+		width: 100%;
+	}
+}
+/* Hide first-nav's English / Français button on mobile */
+@media (max-width: 767px) {
+	#first-nav #lang-button-desktop {
+		display: none;
+	}
+}
+/* Hide second-nav's English / Français button on desktop */
+@media (min-width: 768px) {
+	#second-nav #lang-button-mobile {
+		display: none;
+	}
+}
+/***** End navbars *****/
+
+
+
+/***** Login *****/
+#login {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+#login h1 {
+	font-family: 'Oleo Script', Helvetica, sans-serif;
+	margin: 2rem 0;
+}
+#login .form-group,
+#login .btn.btn-primary {
+	margin: 1rem 0;
+}
+@media (max-width: 767px) {
+	#login {
+		width: 90vw;
+	}
+}
+/* Button */
+.btn.btn-primary {
+	background-color: #26a69a;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	min-width: 8rem;
+	font-weight: bold;
+	border-radius: 1rem;
+}
+/* Button hover */
+.btn.btn-primary:hover {
+	background-color: #009688;
+}
+/***** End login *****/
+
+
+
+/***** Home *****/
+/* Resuable class to set common height across elements */
+.banner {
+	min-height: 22rem;
+}
+/* Add second flex div to solve IE11 bug */
+.outer-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+/* Top banner with picture of LaSalle */
+
+#top-banner .container,
+#bottom-banner .container.banner {
+	/* Center title */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+#top-banner h1,
+#top-banner h3,
+#bottom-banner h1 {
+	font-family: 'Oleo Script', Helvetica, sans-serif;
+	color: #fff;
+}
+#top-banner h1,
+#bottom-banner h1 {
+	font-size: 4rem;
+}
+/* Animate #top-banner; only for tablets and larger */
+@media (min-width: 768px) {
+	#top-banner h1 {
+		animation-name: stretch-out;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(.17,.67,.67,1.54);
+		animation-iteration-count: 1;
+	}
+	#top-banner h3 {
+		animation-name: fade-in;
+		animation-duration: 2s;
+		animation-timing-function: linear;
+		animation-iteration-count: 1;
+	}
+}
+@keyframes stretch-out {
+	0% { letter-spacing: -1rem; }
+	100% { letter-spacing: normal; }
+}
+@keyframes fade-in {
+	0% { opacity: 0; position: relative; }
+	50% { opacity: 0; position: relative; }
+	100% { opacity: 1; position: relative; }
+}
+#bottom-banner {
+	margin-bottom: 1.5rem;
+}
+/* Panes for 3 views of branch */
+.banner-centered {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.thumbnail {
+	background-color: rgba(255, 255, 255, 0.11);
+}
+.thumbnail.banner {
+	margin: 1.5rem 0;
+}
+.thumbnail a {
+	text-decoration: none;
+}
+.thumbnail span,
+.thumbnail h3 {
+	color: #fff;
+	font-size: 2rem;
+}
+.thumbnail:hover span,
+.thumbnail:hover h3 {
+	color: #fff;
+}
+.thumbnail:hover {
+	background-color: #333;
+}
+/* Glyphicons */
+.banner-centered span {
+	display: block;
+	font-size: 5rem;
+	color: #26a69a;
+}
+.banner-centered span,
+.banner-centered .caption {
+	padding: 0;
+	margin: 2rem 0;
+}
+.banner-centered h3 {
+	margin: 0;
+}
+/* Buttons for each executive */
+.btn-success {
+	width: 100%;
+}
+.name-list {
+	border-top: none !important;
+}
+/***** End home *****/
+
+
+
+/***** Planners *****/
+/* Tweak for dragging Tabulator rows on IE11 */
+.planners-parent {
+	-ms-user-select: none;
+}
+.planner {
+	min-height: 22rem;
+	margin-bottom: 3rem;
+}
+.planner-title {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.planner-title h2 {
+	margin: 0;
+}
+.tabulator {
+	background-color: transparent !important;
+}
+.tabulator-row:last-child {
+	border-bottom: 1px solid #aaaaaa;
+}
+/* Hide horizontal scroll bar */
+.tabulator-tableHolder {
+	overflow-x: hidden !important;
+}
+.tabulator-cell {
+	min-height: 3rem;
+}
+/* Hide sort arrows */
+/* Using !important as don't want to disable sort functionality
+in Tabulator JS, just hide icons */
+.tabulator-arrow {
+	display: none !important;
+}
+/* Remove padding whose role was to leave space for sort arrow */
+.tabulator-col-title {
+	padding: 0 !important;
+}
+/* Center text */
+.tabulator-col-content,
+.tabulator-editing input[type="text"],
+.tabulator-edit-select-list-item {
+	text-align: center;
+}
+/* Exception: left-align Objective column */
+.tabulator-col[tabulator-field="objective"] .tabulator-col-content {
+	text-align: left;
+}
+/* Hide scroll bar in Objective column */
+.tabulator-cell[tabulator-field="objective"] textarea {
+	overflow: hidden;
+}
+/* White, bold text for Priority and Progress columns */
+.tabulator-cell[tabulator-field="priority"],
+.tabulator-cell[tabulator-field="progress"] {
+	color: #fff;
+	font-weight: bold;
+}
+/* Hide unnecessary buttons on Chrome date picker */
+input::-webkit-clear-button,
+input::-webkit-inner-spin-button {
+	display: none;
+}
+/* Set size of plus icon */
+.tabulator-cell svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+/* Set colour of delete button (slight difference but
+makes same colour as Priority column's 'High' value) */
+.tabulator-cell svg:not(.svg-exclude) path {
+	fill: #ff3d57;
+}
+/***** End planners *****/
+
+
+
+/***** Additional info modal *****/
+.extra-info {
+	width: 40rem !important;
+}
+@media (max-width: 767px) {
+	.extra-info {
+		width: 100% !important;
+	}
+}
+.extra-info-form {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.extra-info-form table label {
+	margin: 0 1rem 0 0;
+}
+.extra-info-form table,
+.extra-info-form table input,
+.extra-info-form table select {
+	width: 100%;
+}
+/* Prevent text from being right up against edge
+of input box */
+.extra-info-form table input,
+.extra-info-form table select {
+	padding: 0.3rem 0.3rem;
+}
+/* Set option colours to default to avoid being coloured by
+their parent select element */
+.extra-info-form table option {
+	color: #333;
+	background-color: #fff;
+}
+/* Add vertical spacing between rows of the table */
+.extra-info-form td {
+	padding: 1.5rem 0;
+}
+.extra-info-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 3rem 0 2rem 0;
+}
+/* Override default button styling for 'Cancel' */
+.extra-info-buttons .cancel,
+.extra-info-buttons .cancel:hover {
+	background-color: #fff;
+	color: #333;
+}
+/* Profile picture accompanying field 'Last Edited By' */
+.tr-last-edited-by td {
+	padding: 0;
+	text-align: center;
+}
+.tr-last-edited-by img {
+	height: 8rem;
+	border-radius: 50%;
+}
+@media (max-width: 767px) {
+	.tr-last-edited-by img {
+		height: 5rem;
+	}
+}
+/***** End additional info modal *****/
+
+
+
+/***** Schedule *****/
+#schedule-table {
+	position: relative;
+}
+#schedule-table thead td {
+	font-weight: bold;
+}
+#schedule-table tbody {
+	font-size: 0.8rem;
+}
+/* Explicitly declare table row height for vertically
+centering ::before and glyphs */
+#schedule-table tr {
+	height: 2.5rem;
+}
+/* Use ::before pseudo-element to make entire table row a hyperlink
+as HTML specs prohibit wrapping <tr> in <a> */
+.table-link::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	/* Same height as <tr> */
+	height: 2.5rem;
+}
+/***** End schedule *****/
